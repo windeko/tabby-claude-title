@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# shellcheck disable=SC2034  # titles_dir / session_id / session_name are populated for callers
 # Shared helpers for tabby-claude-title example scripts.
 # Sourced, not executed.
 
