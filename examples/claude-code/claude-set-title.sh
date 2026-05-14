@@ -5,7 +5,7 @@
 #
 # Arg $1 — emoji (default 🔵). Reads Claude hook JSON from stdin.
 
-set -u
+set -euo pipefail
 
 self_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=_lib.sh

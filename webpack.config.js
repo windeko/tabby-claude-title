@@ -34,6 +34,7 @@ module.exports = {
     'os',
     /^rxjs/,
     /^@angular/,
+    /^@ng-bootstrap/,
     /^tabby-/,
   ],
 }

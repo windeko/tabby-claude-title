@@ -8,7 +8,7 @@
 # Spawned in the background by SessionStart hook (claude-title-watcher-start.sh).
 # Exits when the matching session JSON disappears (session ended).
 
-set -u
+set -euo pipefail
 
 self_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=_lib.sh

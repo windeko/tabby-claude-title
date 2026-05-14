@@ -3,7 +3,7 @@
 # session_id, and spawns claude-title-watcher.sh in the background so that
 # `/rename` updates the tab title without waiting for the next prompt.
 
-set -u
+set -euo pipefail
 
 self_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # shellcheck source=_lib.sh

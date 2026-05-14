@@ -1,0 +1,36 @@
+name: build
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build plugin
+        run: npm run build
+
+      - name: Verify dist artifacts
+        run: |
+          test -f dist/index.js
+          test -f dist/index.d.ts
+
+      - name: Shellcheck examples
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq shellcheck
+          shellcheck examples/claude-code/*.sh install.sh
