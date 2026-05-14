@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      npm_and_yarn:
+        patterns:
+          - "*"
+    ignore:
+      # Tabby plugins must match Tabby's Angular major (currently 9). Block
+      # all-major bumps for the Angular/related runtime; allow patches.
+      - dependency-name: "@angular/*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+      - dependency-name: "rxjs"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tabby-*"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

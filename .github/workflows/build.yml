@@ -33,4 +33,6 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq shellcheck
-          shellcheck examples/claude-code/*.sh install.sh
+          # cd into examples/claude-code so `# shellcheck source=_lib.sh` resolves.
+          ( cd examples/claude-code && shellcheck -x ./*.sh )
+          shellcheck install.sh
