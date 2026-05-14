@@ -1,0 +1,44 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<INSTALL_DIR>/claude-title-watcher-start.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<INSTALL_DIR>/claude-set-title.sh '🔵'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<INSTALL_DIR>/claude-notify.sh '🟢'"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<INSTALL_DIR>/claude-notify.sh '🟡'"
+          }
+        ]
+      }
+    ]
+  }
+}
