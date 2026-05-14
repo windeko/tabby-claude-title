@@ -24,8 +24,5 @@ import { ClaudeTitleSettingsTabProvider } from './settingsTabProvider'
     declarations: [
         ClaudeTitleSettingsTabComponent,
     ],
-    entryComponents: [
-        ClaudeTitleSettingsTabComponent,
-    ],
 })
 export default class TabbyClaudeTitleModule { }
