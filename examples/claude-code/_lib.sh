@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Shared helpers for tabby-claude-title example scripts.
 # Sourced, not executed.
 
@@ -6,6 +7,7 @@
 #
 # Sets `titles_dir` (global). Returns 0 on success.
 resolve_titles_dir() {
+    # shellcheck disable=SC2034  # `titles_dir` is consumed by callers
     # WSL2 → query Windows for %APPDATA% then convert.
     if grep -qi microsoft /proc/version 2>/dev/null && command -v wslpath >/dev/null 2>&1; then
         local win
@@ -28,6 +30,7 @@ resolve_titles_dir() {
 # Read Claude hook stdin (JSON) and extract session_id.
 # Sets `session_id`. Tolerates missing stdin / missing jq.
 read_claude_session_id() {
+    # shellcheck disable=SC2034  # `session_id` is consumed by callers
     session_id=""
     if [ -t 0 ]; then
         return
@@ -44,6 +47,7 @@ read_claude_session_id() {
 # Sets `session_name`. Defaults to "Claude" if not found.
 resolve_session_name() {
     local sid="$1"
+    # shellcheck disable=SC2034  # `session_name` is consumed by callers
     session_name=""
     if [ -n "$sid" ] && command -v jq >/dev/null 2>&1; then
         local f
