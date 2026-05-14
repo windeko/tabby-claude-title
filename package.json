@@ -27,8 +27,8 @@
   "author": "Vladimir Traigel <vladimir@arbio.com>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/common": "^9.1.9",
-    "@angular/core": "^9.1.9",
+    "@angular/common": "^19.2.16",
+    "@angular/core": "^19.2.20",
     "@angular/forms": "^9.1.9",
     "@types/node": "^18.0.0",
     "rxjs": "^6.6.0",
